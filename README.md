@@ -27,7 +27,8 @@ A factory retorna dinamicamente as instancias das DAOs, é construído normalmen
 Aplicação voltada a serviço, utilizando-se a especificação  **RESTful API JAX-RS**, que será consumida pelo aplicação angular, baseada em JSON 
 
 ## Testes unitários
-Utilizei os frameworks Junit e o mockito para execução dos testes.
+* frameworks Junit.
+* mockito
 
 
 # Arquitetura FRONT-END
