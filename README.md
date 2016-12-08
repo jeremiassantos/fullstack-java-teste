@@ -39,16 +39,16 @@ Foi utilizado o tomcat como servidor de aplicação para esse projeto
 
 # Configuração do projeto
 
-## Execute o build
-## Altere as configurações de conexão do banco no arquivo hibernate.cfg.xml (resources/META-INF/)
-## Crie um novo schema 'souninja'
-## Inicialize o banco (resources/data_base_inicialise.sql)
-## Deployment no tomcat.
+* Execute o build
+* Altere as configurações de conexão do banco no arquivo hibernate.cfg.xml (resources/META-INF/)
+* Crie um novo schema 'souninja'
+* Inicialize o banco (resources/data_base_inicialise.sql)
+* Deployment no tomcat.
 
 # Bonus
-### Para escalar esse sistema seria inicialmente criar um sistema de fila de processo, execução multi-thread.
-### Para facilitar o lançamento das notas, preencher automático a data de emissão com a data atual
-### Gerar o imposto a cada nota lançada / removida.
+* Para escalar esse sistema, criar um sistema de fila de processo e execução multi-thread.
+* Para facilitar o lançamento das notas, preencher automático a data de emissão com a data atual
+* Gerar o imposto a cada nota lançada / removida.
 
 
 
