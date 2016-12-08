@@ -27,7 +27,7 @@ A factory retorna dinamicamente as instancias das DAOs, é construído normalmen
 Aplicação voltada a serviço, utilizando-se a especificação  **RESTful API JAX-RS**, que será consumida pelo aplicação angular, baseada em JSON 
 
 ## Testes unitários
-* frameworks Junit.
+* Junit.
 * mockito
 
 
@@ -45,6 +45,7 @@ Foi utilizado o tomcat como servidor de aplicação para esse projeto
 * Crie um novo schema 'souninja'
 * Inicialize o banco (resources/data_base_inicialise.sql)
 * Deployment no tomcat.
+
 
 # Bonus
 * Para escalar esse sistema, criar um sistema de fila de processo e execução multi-thread.
