@@ -16,7 +16,7 @@ O banco de dados MYSQL.
 
 A **GenericDAO** fornece os métodos básico que é implementado pela classe abstrata HibernateDAO.
 
-Toda interface de DAO que estender GenericDAO, imediatamente suas implementações terão os métodos basicos 
+Toda interface de DAO que estender GenericDAO, imediatamente suas implementações terão os métodos básicos. 
 
 ## Factory de injeção
 
