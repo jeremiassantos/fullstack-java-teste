@@ -1,0 +1,117 @@
+
+<meta charset="UTF-8">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          
+          <section class="">
+            <div class="mdl-card mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+              
+               <div class="text-center wow fadeIn animated">
+               						<button id="tt3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect pull-left" ng-click="cc.modalMesAnoReferencia()">
+									 	Referência {{cc.dataReferencia.mes + '/' + cc.dataReferencia.ano}}
+									</button>
+								
+                          			 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored pull-right" ng-click="cc.openModalIncluirImposto()" style="margin-left: 20px;"">
+								        Incluir nota fiscal
+								      </button>
+								      
+								      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pull-right" ng-if="cc.notaFiscalList.length" ng-click="cc.calcularImposto()" style="margin-left: 20px;"">
+								        {{cc.imposto.length ? 'Recalcular imposto' : 'Calcular imposto'}}
+								      </button>
+								     
+      <br><br><br><br>          
+      					<button id="tt3" ng-if="cc.impostoSelect.length" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pull-left" ng-click="cc.pagamentoCompletedList()">
+									 	Efetuar pagamento
+						</button>  
+						<br><br><br>         			
+						<table class="mdl-cell--6-col mdl-data-table mdl-data-table--selectable">
+						  <thead>
+						    <tr>
+						      <th class="mdl-data-table__cell--non-numeric">Pago</th>
+						      <th>Tipo de Imposto</th>						      
+						      <th>Vencimento</th>
+						      <th>Valor</th>
+						      <th>Mês e ano de referência</th>
+						      <th>Status</th>
+						      
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<tr ng-if="!cc.imposto.length">
+								<td colspan="7" class="mdl-data-table__cell--non-numeric">Nenhum imposto foi encontrado.</td>
+							</tr>
+						    <tr ng-repeat="item in cc.imposto">
+						      <td>
+						      	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{item.id}}">
+								   <input 
+									  	type="checkbox" 
+									  	id="{{item.id}}" 
+									  	class="mdl-checkbox__input"
+									  	ng-checked="cc.impostoSelect.indexOf(item.id) > - 1"
+									  	ng-click="cc.impostoSelection(item.id)"
+									  	ng-disabled="item.pago">
+								</label>
+						      </td>
+						      <td class="mdl-data-table__cell--non-numeric">{{item.impostoTipo.nome}}</td>
+						      <td>{{item.vencimento | date : 'dd/MM/yyyy'}}</td>
+						      <td>{{item.valor | currency : 'R$'}}</td>
+						      <td>{{item.referencia | date : 'MM/yyyy'}}</td>
+						      <td>
+						      		<span ng-if="!item.pago" class="label label-warning">Pagamento pendente</span>
+						      		<span ng-if="item.pago" class="label label-success">Pagamento concluído</span>
+						      </td>
+						      
+						    </tr>
+						   
+						  </tbody>
+						</table>
+						
+						<br><br><br><br>
+						<table class="mdl-cell--12-col mdl-data-table">
+						  <thead>
+						    <tr>
+						      <th class="mdl-data-table__cell--non-numeric">Numero da Nota fiscal</th>						      
+						      <th>Data de emissão</th>
+						      <th>Descrição</th>
+						      <th>Valor</th>
+						      <th ng-if="user.clienteRegimeTributario.id == 1">Anexo</th>
+						      <th></th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  <tr ng-if="!cc.notaFiscalList.length">
+								<td colspan="7" class="mdl-data-table__cell--non-numeric">Nenhuma nota fiscal foi encontrado.</td>
+							</tr>
+						    <tr ng-repeat="item in cc.notaFiscalList">
+						      <td class="mdl-data-table__cell--non-numeric">{{item.numero}}</td>
+						      <td>{{item.dataEmissao | date : 'dd/MM/yyyy'}}</td>
+						       <td>{{item.descricao}}</td>
+						      <td>{{item.valor | currency : 'R$'}}</td>
+						      <td ng-if="user.clienteRegimeTributario.id == 1">{{item.anexoTipo.nome}}</td>
+						      <td>
+						      	<button ng-click="cc.deletarNota(item)" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+								  <i class="material-icons">delete_forever</i>
+								</button>
+						      </td>
+						    </tr>
+						   
+						  </tbody>
+						</table>
+						
+						
+						
+
+					</div>
+              </div>
+             
+            </div>
+            
+          </section>
+          
+       
+        </div>
+        
+        
+         
+   
+       

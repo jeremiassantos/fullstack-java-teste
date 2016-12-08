@@ -1,0 +1,122 @@
+<meta charset="UTF-8">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--6-col">
+              <div class="col-md-6 mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">Informe os dados da sua empresa.</h4>
+               <div class="row wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+                          			
+
+						<form class="form-horizontal col-md-12" id="form-migracao" ng-submit="hc.saveUsuario()" role="form" novalidate="novalidate">
+							<div class="form-group">
+								<div class="col-lg-12">
+									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									    <input class="mdl-textfield__input" type="text" ng-model="hc.clienteEntity.rasaoSocial">
+									    <label class="mdl-textfield__label" for="sample3">Razão social</label>
+									  </div>
+								</div>
+							</div>	
+							<div class="form-group">
+								<div class="col-lg-12">
+									 <div ng-class="hc.validate.cnpj.isInvalid ? 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-invalid' : 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label'">
+									    <input class="mdl-textfield__input" type="text" id="cnpj" ng-model="hc.clienteEntity.cnpj" data-mask="99.999.999/9999-99" ng-blur="hc.setCnpj()">
+									    <label class="mdl-textfield__label" for="sample3">CNPJ</label>									    
+									  </div>
+									  <span class="help-block has-error" ng-show="hc.validate.cnpj.isInvalid">{{hc.validate.cnpj.message}}</span>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-6">
+									<!-- mdl-button--accent -->
+									 <button type="button" ng-class="hc.clienteEntity.clienteRegimeTributario.id == 1 ? 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' : 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect'" 
+									 	ng-click="hc.setSimplesNacional()">
+									 	Simples Nacional
+									</button>
+									 
+								</div>
+								<div class="col-md-6">
+								<button type="button" ng-class="hc.clienteEntity.clienteRegimeTributario.id == 2 ? 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' : 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect'" 
+									 	ng-click="hc.setLucroPresumido()">
+									 	Lucro Presumido
+									</button>
+								</div>
+							</div>
+							<br>
+							<div class="form-group" ng-show="hc.clienteEntity.clienteRegimeTributario.id == 1">
+								<div class="col-lg-12">
+									 <label ng-class="'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect'" for="{{item.id}}" ng-repeat="item in hc.anexoTipoList">
+									  <input 
+									  	type="checkbox" 
+									  	id="{{item.id}}" 
+									  	ng-class="'mdl-checkbox__input'"
+									  	ng-checked="hc.anexoTiposSelection.indexOf(item) > - 1"
+									  	ng-click="hc.clienteAnexoTiposSelection(item)">
+									  <span ng-class="'mdl-checkbox__label'">{{item.nome}}</span>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-12">
+									 <div ng-class="hc.validate.email.isInvalid ? 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-invalid' : 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label'">
+									    <input class="mdl-textfield__input" type="text" ng-model="hc.clienteEntity.email" ng-blur="hc.validEmail()">
+									    <label class="mdl-textfield__label" for="sample3">E-mail</label>
+									  </div>
+									  <span class="help-block has-error" ng-show="hc.validate.email.isInvalid">{{hc.validate.email.message}}</span>
+								</div>
+							</div>
+																					
+							<button ng-disabled="hc.validate.email || hc.validate.cnpj" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Continuar
+							</button>
+							
+							
+																
+						  </form>
+
+					</div>
+              </div>
+              
+              
+             
+            </div>
+            
+            <div class="mdl-card mdl-cell mdl-cell--6-col">
+              <div class="col-md-6 mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">Entre com seus dados</h4>
+               <div class="fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+                          			
+
+						<form class="form-horizontal col-md-12" id="form-migracao" ng-submit="hc.initByCnpj()" role="form" novalidate="novalidate">
+							
+							<div class="form-group">
+								<div class="col-lg-12">
+									 <div ng-class="hc.validateInit.isInvalid ? 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-invalid' : 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label'">
+									    <input class="mdl-textfield__input" type="text" id="cnpjInit" ng-model="hc.clienteInitEntity.cnpj" data-mask="99.999.999/9999-99" ng-blur="hc.setCnpjInit()">
+									    <label class="mdl-textfield__label" for="sample3">CNPJ</label>
+									  </div>
+									  <span class="help-block has-error" ng-show="hc.validateInit.isInvalid">{{hc.validateInit.message}}</span>
+									  
+								</div>
+							</div>
+																					
+							<button  type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Entrar
+							</button>
+							
+							
+																
+						  </form>
+
+					</div>
+              </div>
+              
+              
+             
+            </div>
+           
+          </section>
+          
+       
+        </div>
+       

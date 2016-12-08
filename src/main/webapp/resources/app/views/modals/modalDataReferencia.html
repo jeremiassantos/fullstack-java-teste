@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<div class="modal inmodal fade" id="modalDataReferencia" tabindex="-1" role="dialog" 
+	aria-hidden="true">
+	<div class="modal-dialog">
+	
+	<form class="form-horizontal" name="alterarSenha" ng-submit="cc.alterarMesAnoReferencia()">
+			<div class="modal-content animated fadeIn">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">Alterar mês e ano de referência</h4>
+				</div>
+				<div class="modal-body">
+							
+							<div class="form-group">
+								<div class="col-md-5">
+									<div class="mdl-selectfield mdl-js-selectfield col-md-3">
+									  <select id="gender" class="mdl-selectfield__select" ng-options="mes.key as mes.value for mes in cc.mesArray" ng-model="cc.dataReferenciaOld.mes">
+									    	<option value=""></option> 
+									  </select>
+									  
+									</div>
+									<div class="mdl-selectfield mdl-js-selectfield col-md-3">
+									  <select id="gender" class="mdl-selectfield__select" ng-options="ano.value as ano.value for ano in cc.anoArray" ng-model="cc.dataReferenciaOld.ano">
+									    	<option value=""></option> 
+									  </select>
+									  
+									</div>
+							      </div>
+						      </div>
+									
+								
+	
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">
+							  Cancelar
+					</button>
+					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Alterar
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

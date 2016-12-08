@@ -1,0 +1,75 @@
+<meta charset="UTF-8">
+<div class="modal inmodal fade" id="modalInserirImposto" tabindex="-1" role="dialog" 
+	aria-hidden="true">
+	<div class="modal-dialog">
+	
+	<form class="form-horizontal" name="alterarSenha" ng-submit="cc.incluirNotaFiscal()">
+			<div class="modal-content animated fadeIn">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">Incluir nota fiscal</h4>
+				</div>
+				<div class="modal-body">
+							<div class="form-group row">
+								<div class="col-md-12">
+									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									    <input class="mdl-textfield__input" type="text" ng-model="cc.notaFiscalEntity.numero">
+									    <label class="mdl-textfield__label" for="sample3">Numero da Nota fiscal</label>
+									  </div>
+								</div>
+							</div>	
+							<div class="form-group">
+								<div class="col-md-12">
+									 <div  ng-class="cc.validate.data.isInvalid ? 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-invalid' : 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label'">
+									    <input class="mdl-textfield__input" id="dateEmissao" ng-blur="cc.validaData()" type="text" data-mask="99/99/9999" ng-model="cc.notaFiscalEntity.dataEmissao">
+									    <label class="mdl-textfield__label" for="sample3">Data de emissão</label>
+									  </div>
+									  <span class="help-block has-error" ng-show="cc.validate.data.isInvalid">A data informda é inválida.</span>
+									  
+								</div>
+							</div>	
+							<div class="form-group">
+								<div class="col-md-12">
+									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									    <input class="mdl-textfield__input currency" type="text" 
+									    id="preco" data-affixes-stay="true" data-prefix="R$ " data-thousands="." data-decimal="," ng-model="cc.notaFiscalEntity.valor">
+									    <label class="mdl-textfield__label" for="sample3">Valor</label>
+									  </div>
+								</div>
+							</div>	
+							<div class="form-group">
+								<div class="col-lg-12">
+									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									    <input class="mdl-textfield__input" type="text" ng-model="cc.notaFiscalEntity.descricao">
+									    <label class="mdl-textfield__label" for="sample3">Descrição</label>
+									  </div>
+								</div>
+							</div>	
+							<div class="form-group" ng-if="cc.clienteAnexoTipoList.length">
+								<div class="col-lg-12">
+									<div class="mdl-selectfield mdl-js-selectfield">
+									  <select id="gender" class="mdl-selectfield__select" ng-options="anexo.anexoTipo.id as anexo.anexoTipo.nome for anexo in cc.clienteAnexoTipoList" ng-model="cc.notaFiscalEntity.anexoTipo.id">
+									    	<option value="">Anexo</option> 
+									  </select>
+									  
+									</div>
+							      </div>
+						      </div>
+									
+								
+	
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">
+							  Cancelar
+					</button>
+					<button ng-disabled="cc.validate.data" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Salvar
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
