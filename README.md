@@ -20,11 +20,11 @@ Toda interface de DAO que estender GenericDAO, imediatamente suas implementaçõ
 
 ## Factory de injeção
 
-Utilizei uma factory que retornar dinamicamente as instancias das DAOs, é construído normalmente pelo construtor das services.
+A factory retorna dinamicamente as instancias das DAOs, é construído normalmente pelo construtor das services.
 
 ## RESTful API JAX-RS implementado pelo framework Jersey
 
-Aplicação voltada a serviço, utilizando-se a especificação  **RESTful API JAX-RS**, que será consumido pelo aplicação angular baseada em JSON 
+Aplicação voltada a serviço, utilizando-se a especificação  **RESTful API JAX-RS**, que será consumida pelo aplicação angular, baseada em JSON 
 
 ## Testes unitários
 Utilizei os frameworks Junit e o mockito para execução dos testes.
